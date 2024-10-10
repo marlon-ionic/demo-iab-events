@@ -21,7 +21,7 @@ export class HomePage {
   private data = inject(DataService);
   private readonly iab = inject(InAppBrowser);
   constructor() {
-    addIcons({ open});
+    addIcons({ open });
   }
 
   async openIAB() {
@@ -31,7 +31,7 @@ export class HomePage {
     ref.on('loadstart').subscribe(event => {
       console.log('loadstart', event);
     });
-    ref.on('loadstop').subscribe(event => {
+    ref.on('loadstop').pipe().subscribe(event => {
       console.log('loadstop', event);
     });
   }
